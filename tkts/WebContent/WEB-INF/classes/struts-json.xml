@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="struts" namespace="/" extends="json-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+        <interceptors>
+            <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+        </interceptors>
+        <action name="JSONExample" class="com.tks.web.JSONAction" >
+            <result type="json">
+                <param name="noCache">true</param>
+                <param name="contextType">text/html</param>
+
+            </result>
+        </action>
+        <action name="JSONExampleJSP" class="com.tks.web.JSONAction" >
+            <result name="success">/JSONExampleJSP.jsp</result>
+        </action>
+        <action name="JSONExampleAction" class="com.tks.web.JSONAction" method="doAction">
+        </action>
+        <action name="JSONExampleActionStructs2" class="com.tks.web.JSONAction" method="jsonAction">
+            <result type="json">
+                <param name="root">datamap</param>
+            </result>
+        </action>
+    </package>
+</struts>

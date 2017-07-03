@@ -1,0 +1,102 @@
+<html>
+<head>
+Project
+<script type="text/javascript">
+var baseURL="http://localhost:9090/restdemo/project"
+function GetByID()
+{
+  //var projectID = document.forms[0].elements["projectID"].value;
+ // document.forms[0].action = baseURL+"/"+projectID;
+ // document.forms[0].submit();
+ var projectID=document.getElementById("projectID").value;
+  var xml=httpGet(projectID);//"<projects><project><projectID>1</projectID><projectName>name11</projectName></project></projects>";
+var xmldoc=parseXML(xml);
+var elements = xmlDoc.getElementsByTagName("project");
+//for (var i = 0; i < elements.length; i++) {
+              var name = elements[0].getElementsByTagName("projectName")[0].firstChild.nodeValue;
+			// document.write(name);
+			  document.getElementById("projectName").value=xml;//name;
+}
+
+function httpGet(projectID) {
+  
+ var data = {};
+ data["service"]  = "GET";
+ data["Entry-Id"] = "111111";
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", baseURL+"/"+projectID, true);
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+   // xmlhttp.send(JSON.stringify(data));
+    if (xmlhttp.Status = 200) return xmlhttp.responseText;
+}
+
+function httpPost() {
+    var xmlhttp;
+ var url = 'http://10.10.10.10';
+ var data = {};
+ data["service"]  = "UPDATE";
+ data["Entry-Id"] = "111111";
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", url, true);
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+    xmlhttp.send(JSON.stringify(data));
+    if (xmlhttp.Status = 200) return xmlhttp.responseText;
+}
+
+			//document.getElementById("projectName").value=name;
+function LoadXML(xmlString){
+        var xmlDoc=null;
+      //  if(!window.DOMParser && window.ActiveXObject){  
+            var xmlDomVersions = ['MSXML.2.DOMDocument.6.0','MSXML.2.DOMDocument.3.0','Microsoft.XMLDOM'];
+            for(var i=0;i<xmlDomVersions.length;i++){
+                try{
+                    xmlDoc = new ActiveXObject(xmlDomVersions[i]);
+                    xmlDoc.async = false;
+                    xmlDoc.loadXML(xmlString); 
+                    break;
+                }catch(e){
+                }
+            }
+    //    }
+        
+        return xmlDoc;
+    }
+
+function parseXML(xmlString){
+   try 
+   {
+    xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+   }
+   catch (e) {
+    try 
+    {
+     xmlDoc = document.implementation.createDocument("", "", null);
+    }
+    catch (e) {
+     alert(e.message);
+     return;  
+    }
+   }
+   xmlDoc.async = false;
+   xmlDoc.loadXML(xmlString);
+   return xmlDoc;
+
+}
+
+</script>
+</head>
+<body>
+<br/>
+Project ID: 
+<input type="text" id ="projectID" name="projectID" />
+<input type="button" value="GET" onclick="GetByID()" />
+<br/>
+Project Name: 
+<input type="text" id="projectName" name="projectName" value="default"/>
+<input type="button" value ="UPDATE" />
+
+
+</body>
+</html>

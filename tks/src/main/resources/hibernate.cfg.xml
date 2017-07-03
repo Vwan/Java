@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/TKTS</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.formate_sql">true</property>
+        <!-- auto generate table-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <property name="openjpa.jdbc.Schema">tkts</property>
+        <property name="minPoolSize">5</property>
+        <property name="initialPoolSize">10</property>
+        <property name="idleConnectionTestPeriod">120</property>
+        <property name="acquireIncrement">10</property>
+        <property name="checkoutTimeout">3600</property>
+        <property name="numHelperThreads">4</property>
+        <property name="maxStatements">400</property>
+        <property name="maxStatementsPerConnection">20</property>
+        <property name="maxIdleTime">180</property>
+        <property name="acquireRetryAttempts">30</property>
+        <property name="maxPoolSize">200</property>
+        <property name="verifyServerCertificate">false</property>
+        <property name="useSSL">false</property>
+
+        <!-- mapping file
+        <mapping resource="Student.hbm.xml"></mapping>
+        <mapping resource="Book.hbm.xml"></mapping>-->
+    </session-factory>
+</hibernate-configuration>

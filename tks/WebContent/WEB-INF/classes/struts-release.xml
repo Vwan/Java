@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="struts-release" namespace="/release" extends="struts,json-default">
+       <action name="create" class="com.tks.web.action.ReleaseAction" method="create">
+           <result type="json">
+               <param name="root">datamap</param>
+           </result>
+        </action>
+        <action name="update" class="com.tks.web.action.ReleaseAction" method="update">
+            <result type="json">
+                <param name="root">datamap</param>
+            </result>
+        </action>
+        <action name="listAll" class="com.tks.web.action.ReleaseAction" method="listAll">
+            <result type="json">
+                <param name="root">datamap</param>
+            </result>
+        </action>
+        <action name="delete" class="com.tks.web.action.ReleaseAction" method="delete">
+            <result type="json">
+                <param name="root">datamap</param>
+            </result>
+        </action>
+        </package>
+
+</struts>

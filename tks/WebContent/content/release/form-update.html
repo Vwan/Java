@@ -1,0 +1,46 @@
+<div class="modal-body">
+    <!-- ID -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="id">ID</label>
+        <div class="col-md-4">
+            <input id="id" name="id" type="text" class="form-control input-md"><!-- disabled="true">-->
+            <span class="taskStatus-id">ID</span>
+        </div>
+    </div>
+    <!-- Name -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="name">Name</label>
+        <div class="col-md-4">
+            <input id="name" name="name" type="text" placeholder="Enter a Name" class="form-control input-md" required="">
+            <span class="help-block">Name</span>
+        </div>
+    </div>
+    <!-- Description -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Description</label>
+        <div class="col-md-4">
+            <input id="description" name="description" type="text" placeholder="Enter a description" class="form-control input-md" required="">
+            <span class="help-block">Description</span>
+        </div>
+    </div>
+    <!-- Languages -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="Name">Languages</label>
+        <div class="col-md-4">
+            <select id="example-getting-started"  name="multiselect[]" multiple="multiple">
+                <option value="cn">CHN</option>
+                <option value="jp">JPN</option>
+                <option value="fr">FRA</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+
+    <div class="col-md-6">
+        <input type="submit" value="Submit" class="btn btn-default"/>
+        <input type="submit" value="Close" class="btn btn-default" data-dismiss="modal"/>
+    </div>
+    result: <label id="result"/>
+
+</div>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+
+    <Configure class="org.eclipse.jetty.webapp.WebAppContext">
+        <New id="TKTS" class="org.eclipse.jetty.plus.jndi.Resource"><!--class="org.mortbay.jetty.plus.naming.Resource">-->
+        <Arg></Arg>
+        <Arg>jdbc/tkts</Arg>
+ <!--       <Arg>
+            <New class="oracle.jdbc.pool.OracleDataSource">
+                <Set name="DriverType">thin</Set>
+                        <Set name="URL">jdbc:oracle:thin:@gsedb01.chn.hp.com:1521:gseora112</Set>
+                        <Set name="User">Winnie</Set>
+                        <Set name="Password">Winnie</Set>
+                    </New>
+                </Arg>
+-->
+            <Arg>
+             <!--   <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">-->
+                <New class="com.mysql.cj.jdbc.MysqlConnectionPoolDataSource">
+                    <Set name="Url">jdbc:mysql://localhost:3306/TKTS</Set>
+                    <Set name="User">root</Set>
+                    <Set name="Password">root</Set>
+                </New>
+            </Arg>
+            </New>
+    </Configure>
+

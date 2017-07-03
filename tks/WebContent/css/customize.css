@@ -1,0 +1,26 @@
+td.details-control {
+    background: url('/tks/images/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('/tks/images/details_close.png') no-repeat center center;
+}
+
+.vertical-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.errors {
+	background-color:#FFCCCC;
+	border:1px solid #CC0000;
+	width:400px;
+	margin-bottom:8px;
+}
+.errors li{
+	list-style: none;
+}
